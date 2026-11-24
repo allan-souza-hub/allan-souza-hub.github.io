@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Allan Lima Souza | Portfólio de Ciência de Dados</title>
+
+<style>
+:root{
+    --bg:#05070d;
+    --bg-secondary:#0f172a;
+    --card:#111827;
+    --card-hover:#172033;
+    --accent:#3b82f6;
+    --accent-light:#60a5fa;
+    --text:#f8fafc;
+    --text-secondary:#94a3b8;
+    --success:#22c55e;
+    --border:rgba(96,165,250,.15);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI",sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.6;
+}
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:40px 20px;
+    position:relative;
+    overflow:hidden;
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    width:700px;
+    height:700px;
+    background:radial-gradient(circle,
+    rgba(59,130,246,.25) 0%,
+    rgba(59,130,246,.08) 40%,
+    transparent 75%);
+    top:-250px;
+    left:50%;
+    transform:translateX(-50%);
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    max-width:900px;
+}
+
+.badge{
+    display:inline-block;
+    background:rgba(59,130,246,.15);
+    color:var(--accent-light);
+    border:1px solid rgba(96,165,250,.25);
+    padding:8px 16px;
+    border-radius:100px;
+    margin-bottom:25px;
+    font-size:.9rem;
+    font-weight:600;
+}
+
+.hero h1{
+    font-size:clamp(2.5rem,8vw,5rem);
+    margin-bottom:15px;
+}
+
+.hero h2{
+    color:var(--accent-light);
+    font-weight:500;
+    margin-bottom:25px;
+}
+
+.hero p{
+    max-width:700px;
+    margin:auto;
+    color:var(--text-secondary);
+    font-size:1.1rem;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:80px 20px;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.section-title h2{
+    font-size:2.2rem;
+    margin-bottom:10px;
+}
+
+.section-title p{
+    color:var(--text-secondary);
+}
+
+.about{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:24px;
+    transition:.3s;
+}
+
+.card:hover{
+    background:var(--card-hover);
+    transform:translateY(-4px);
+}
+
+.card h3{
+    margin-bottom:10px;
+    color:var(--accent-light);
+}
+
+.card p{
+    color:var(--text-secondary);
+}
+
+.project-header{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.project-name{
+    font-size:2rem;
+    margin-bottom:10px;
+}
+
+.project-description{
+    color:var(--text-secondary);
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:20px;
+}
+
+.project-card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:25px;
+}
+
+.project-card h3{
+    margin-bottom:12px;
+    color:var(--accent-light);
+}
+
+.project-card p{
+    color:var(--text-secondary);
+}
+
+.metrics{
+    margin-top:50px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:20px;
+}
+
+.metric{
+    background:linear-gradient(
+    135deg,
+    rgba(59,130,246,.15),
+    rgba(17,24,39,1)
+    );
+    border:1px solid rgba(59,130,246,.25);
+    border-radius:20px;
+    padding:25px;
+    text-align:center;
+}
+
+.metric-number{
+    font-size:2rem;
+    font-weight:bold;
+    color:var(--accent-light);
+    margin-bottom:5px;
+}
+
+.metric-text{
+    color:var(--text-secondary);
+}
+
+.contact{
+    text-align:center;
+}
+
+.contact-box{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:20px;
+    max-width:700px;
+    margin:auto;
+    padding:30px;
+}
+
+.contact p{
+    color:var(--text-secondary);
+    margin:10px 0;
+}
+
+a{
+    color:var(--accent-light);
+    text-decoration:none;
+}
+
+a:hover{
+    text-decoration:underline;
+}
+
+footer{
+    border-top:1px solid rgba(255,255,255,.05);
+    text-align:center;
+    color:var(--text-secondary);
+    padding:30px 20px;
+    margin-top:60px;
+}
+
+/* =========================
+   TABLETS
+========================= */
+
+@media (max-width: 1024px){
+
+    .container{
+        padding:60px 24px;
+    }
+
+    .hero h1{
+        font-size:3.5rem;
+    }
+
+    .project-name{
+        font-size:1.8rem;
+    }
+
+}
+
+/* =========================
+   CELULARES GRANDES
+========================= */
+
+@media (max-width: 768px){
+
+    .hero{
+        min-height:75vh;
+        padding:60px 20px;
+    }
+
+    .hero h1{
+        font-size:2.8rem;
+    }
+
+    .hero h2{
+        font-size:1.3rem;
+    }
+
+    .hero p{
+        font-size:1rem;
+    }
+
+    .section-title h2{
+        font-size:1.8rem;
+    }
+
+    .project-name{
+        font-size:1.5rem;
+    }
+
+    .metrics{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .card,
+    .project-card{
+        padding:20px;
+    }
+
+}
+
+/* =========================
+   CELULARES PEQUENOS
+========================= */
+
+@media (max-width: 480px){
+
+    .hero{
+        min-height:70vh;
+    }
+
+    .badge{
+        font-size:.75rem;
+        padding:6px 12px;
+    }
+
+    .hero h1{
+        font-size:2.1rem;
+    }
+
+    .hero h2{
+        font-size:1rem;
+    }
+
+    .hero p{
+        font-size:.95rem;
+    }
+
+    .container{
+        padding:50px 15px;
+    }
+
+    .section-title h2{
+        font-size:1.5rem;
+    }
+
+    .about{
+        grid-template-columns:1fr;
+    }
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .metrics{
+        grid-template-columns:1fr;
+    }
+
+    .metric{
+        padding:20px;
+    }
+
+    .metric-number{
+        font-size:1.7rem;
+    }
+
+    .contact-box{
+        padding:20px;
+    }
+
+}
+
+/* =========================
+   TELAS MUITO LARGAS
+========================= */
+
+@media (min-width: 1400px){
+
+    .container{
+        max-width:1300px;
+    }
+
+    .hero-content{
+        max-width:1000px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="badge">
+            PORTFÓLIO DE CIÊNCIA DE DADOS
+        </div>
+
+        <h1>Allan Lima Souza</h1>
+
+        <h2>Estudante de Ciência de Dados</h2>
+
+        <p>
+            Gosto de estudar sobre programação, desenvolvimento de sistemas e algorítmos de IA
+        </p>
+
+    </div>
+
+</section>
+
+<section class="container">
+
+    <div class="section-title">
+        <h2>Sobre Mim</h2>
+        <p>Informações profissionais e acadêmicas</p>
+    </div>
+
+    <div class="about">
+
+        <div class="card">
+            <h3>Nome</h3>
+            <p>Allan Lima Souza</p>
+        </div>
+
+        <div class="card">
+            <h3>Curso</h3>
+            <p>Ciência de Dados</p>
+        </div>
+
+        <div class="card">
+            <h3>Faculdade</h3>
+            <p>FATEC Adamantina</p>
+        </div>
+
+        <div class="card">
+            <h3>Sobre Mim</h3>
+            <p>
+                Tenho interesse em análise de dados,IA, Lógica de Programação, Python,
+                interesse em projetos que envolvam machine learning.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="container">
+
+    <div class="project-header">
+
+        <div class="badge">
+            PROJETO ACADÊMICO
+        </div>
+
+        <h2 class="project-name">
+            ANÁLISE SOBRE INTELIGÊNCIA ARTIFICIAL:
+
+        </h2>
+
+        <p class="project-description">
+             Usos Nos Processos De Game Design
+        </p>
+
+    </div>
+
+    <div class="grid">
+
+        <div class="project-card">
+
+            <h3>Problema</h3>
+
+            <p>
+                Dado a crescente evolução das IAs no mundo inteiro, se viu a necessidade de entender como ela poderia ser 
+                aplicada na área de criação de jogos eletrônicos, visto que é uma área que demanda por inovações tecnológicas e 
+                hoje é muito lucrativa.
+            </p>
+
+        </div>
+
+        <div class="project-card">
+
+            <h3>O que eu fiz</h3>
+
+            <p>
+                Analisei 4 casos em que houve emprego de ia, em áreas diferentes do desenvolvimento, tentei compreender como
+                funcionavam e analisar seus pontos fortes e fracos. Com isso pude deduzir como esses usos podem influenciar a industria dos jogos no futuro.
+            </p>
+
+        </div>
+
+        <div class="project-card">
+
+            <h3>Como eu fiz</h3>
+
+            <p>
+                Utilizei documentos e artigos publicados, ao qual exibiam testes desses usos de ia
+            </p>
+
+        </div>
+
+        <div class="project-card">
+
+            <h3>Resultado</h3>
+
+            <p>
+                Dos 4 casos sobre uso de IA, 2 deles se destacam por poderem ser usados amplamente pela industria, ainda que tenham pontos para melhoria 
+                (Como no caso da tecnologia de upscalling de imagem melhorar a coerência quando amplia a resolução de uma imagem muito pequena).
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- <div class="metrics">
+
+        <div class="metric">
+            <div class="metric-number">5.000+</div>
+            <div class="metric-text">Registros analisados</div>
+        </div>
+
+        <div class="metric">
+            <div class="metric-number">89%</div>
+            <div class="metric-text">Redução de trabalho manual</div>
+        </div>
+
+        <div class="metric">
+            <div class="metric-number">20 min</div>
+            <div class="metric-text">Tempo para gerar relatório</div>
+        </div>
+
+        <div class="metric">
+            <div class="metric-number">1</div>
+            <div class="metric-text">Dashboard centralizado</div>
+        </div>
+
+    </div> -->
+
+</section>
+
+<section class="container contact">
+
+    <div class="section-title">
+        <h2>Contatos</h2>
+        
+    </div>
+
+    <div class="contact-box">
+
+        <p>
+            <strong>GitHub:</strong>
+            https://github.com/allan-souza-hub
+        </p>
+
+        <p>
+            <strong> Email: </strong>
+            allan.souza@aluno.cps.sp.gov.br
+            
+        </p>
+
+    </div>
+
+</section>
+
+<footer>
+
+    © 2026 • Portfólio Acadêmico de Ciência de Dados
+
+</footer>
+
+</body>
+</html>
